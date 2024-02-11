@@ -1,0 +1,41 @@
+:root {
+    --dark: #222831;
+    --gray: #393E46;
+    --yellow: #FFD369;
+    --accent: #00ADB5;
+    --light: #EEEEEE;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: var(--light);
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.input-wrapper input,
+.input-wrapper input:focus {
+    height: 2.3rem;
+    width: 10rem;
+    padding: .5rem;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    background-color: rgba(255, 255, 255, .3);
+    color: var(--light);
+    text-align: center;
+    font-size: 1.2rem;
+    backdrop-filter: blur(10px);
+
+
+}
