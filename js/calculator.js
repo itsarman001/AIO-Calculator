@@ -1,30 +1,22 @@
-const display = document.querySelector("#display");
-const buttons = document.querySelectorAll("button");
+let calcBtn = document.querySelectorAll(".calc-btn");
+let input = document.getElementById("calc-output");
+let string = "";
 
-buttons.forEach((item) => {
-  item.onclick = () => {
-    if (item.id == "clear") {
-      display.innerText = "";
-    } else if (item.id == "backspace") {
-      let string = display.innerText.toString();
-      display.innerText = string.substr(0, string.length - 1);
-    } else if (display.innerText != "" && item.id == "equal") {
-      display.innerText = eval(display.innerText);
-    } else if (display.innerText == "" && item.id == "equal") {
-      display.innerText = "Empty!";
-      setTimeout(() => (display.innerText = ""), 2000);
-    } else {
-      display.innerText += item.id;
-    }
-  };
-});
-
-const themeToggleBtn = document.querySelector(".theme-toggler");
-const calculator = document.querySelector(".calculator");
-const toggleIcon = document.querySelector(".toggler-icon");
-let isDark = true;
-themeToggleBtn.onclick = () => {
-  calculator.classList.toggle("dark");
-  themeToggleBtn.classList.toggle("active");
-  isDark = !isDark;
-};
+calcBtn.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        let val = e.target.textContent;
+        if (val == "=") {
+            string = eval(string);
+            input.value = string;
+        } else if (val == "AC") {
+            string = "";
+            input.value = 0;
+        } else if (val == "DEL") {
+            string = string.substring(0, string.length - 1);
+            input.value = string;
+        } else {
+            string += val;
+            input.value = string;
+        }
+    })
+})
